@@ -2,22 +2,10 @@ import streamlit as st
 import tensorflow as tf
 from PIL import Image
 import numpy as np
-import gdown
-import os
 
-# Google Drive Configuration
-file_id = '1-Xpc7eR6wgHC0ZBKKYVEGO_0VNpDRxNU'  
-model_path = 'cat_dog_classifier_kaggle1.h5'
-url = f'https://drive.google.com/uc?id={file_id}'
-
-# Download the model if it doesn't exist
-if not os.path.exists(model_path):
-    st.write("Downloading model...")
-    gdown.download(url, model_path, quiet=False)
-    st.write("Model downloaded!")
 
 # Load the trained model
-model = tf.keras.models.load_model(model_path)
+model = tf.keras.models.load_model('cat_dog_classifier_kaggle.h5')
 
 # Function to preprocess the uploaded image
 def preprocess_image(image):
